@@ -6,6 +6,7 @@ import { ReactComponent as InstagramLogo } from "../assets/social/instagram-whit
 import { ReactComponent as AppStore } from "../assets/store/app-store.svg";
 import { ReactComponent as PlayStore } from "../assets/store/play-store.svg";
 import { ReactComponent as WindowsStore } from "../assets/store/windows-store.svg";
+import { ReactComponent as SearchIcon } from "../assets/icons/search-icon.svg";
 
 function getFooterLinksSpacing(index: number) {
   if (index !== 0) {
@@ -33,7 +34,7 @@ export default function Mockup() {
   return (
     <div>
       <header>
-        <div className="topBar shadow">
+        <div className="topBar shadow blueBackground">
           <div className="blueBar max">
             <div className="section">
               <h1 className="colorWhite titleMargin">DEMO Streaming</h1>
@@ -55,11 +56,25 @@ export default function Mockup() {
         </div>
         <div className="greyBackground shadow">
           <div className="max">
-            <h2 className="popular colorWhite">Popular Titles</h2>
+            <h2 className="popular colorWhite">Popular Movies</h2>
           </div>
         </div>
       </header>
-      <div className="max">Body</div>
+      <div className="max bodyMargin">
+        <div className="flex">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="searchTerm lightShadow"
+          />
+          <button
+            className="blueBackground searchButton lightShadow"
+            type="submit"
+          >
+            <SearchIcon className="searchIcon" />
+          </button>
+        </div>
+      </div>
       <footer className="footer">
         <div className="max colorWhite footerMargin">
           <div>
