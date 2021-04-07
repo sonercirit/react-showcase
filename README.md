@@ -57,6 +57,10 @@ Lints the whole project with eslint.
 
 Page router.
 
+### react-select
+
+Allows custom styling of options.
+
 ### eslint with airbnb config
 
 Linter with best practices baked in.
