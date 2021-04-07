@@ -7,12 +7,22 @@ import { ReactComponent as AppStore } from "../assets/store/app-store.svg";
 import { ReactComponent as PlayStore } from "../assets/store/play-store.svg";
 import { ReactComponent as WindowsStore } from "../assets/store/windows-store.svg";
 import { ReactComponent as SearchIcon } from "../assets/icons/search-icon.svg";
+import CustomSelect from "../components/customSelect/customSelect";
 
 function getFooterLinksSpacing(index: number) {
   if (index !== 0) {
     return <span>&nbsp;| </span>;
   }
   return "";
+}
+
+function getDropdownItems(count: number) {
+  const results = [];
+  for (let i = 0; i < count; i += 1) {
+    const name = `Dropdown Item ${i + 1}`;
+    results.push({ label: name, value: name });
+  }
+  return results;
 }
 
 export default function Mockup() {
@@ -61,18 +71,23 @@ export default function Mockup() {
         </div>
       </header>
       <div className="max bodyMargin">
-        <div className="flex">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="searchTerm lightShadow"
-          />
-          <button
-            className="blueBackground searchButton lightShadow"
-            type="submit"
-          >
-            <SearchIcon className="searchIcon" />
-          </button>
+        <div className="bodyTop">
+          <div className="flex">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="searchTerm lightShadow"
+            />
+            <button
+              className="blueBackground searchButton lightShadow"
+              type="submit"
+            >
+              <SearchIcon className="searchIcon" />
+            </button>
+          </div>
+          <div>
+            <CustomSelect options={getDropdownItems(3)} />
+          </div>
         </div>
       </div>
       <footer className="footer">

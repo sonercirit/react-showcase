@@ -105,6 +105,7 @@
 }
 
 .searchTerm {
+  padding-left: 20px;
   font-size: 13pt;
   border: 0;
 }
@@ -132,4 +133,9 @@
 
 .flex {
   display: flex;
+}
+
+.bodyTop {
+  display: flex;
+  justify-content: space-between;
 }
