@@ -17,7 +17,6 @@ export default function CustomSelect({ options }: any) {
       ...base,
       border: 0,
       boxShadow,
-      width: "300px",
       fontSize: "13pt",
       minHeight: 0,
     }),

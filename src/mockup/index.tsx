@@ -8,6 +8,7 @@ import { ReactComponent as PlayStore } from "../assets/store/play-store.svg";
 import { ReactComponent as WindowsStore } from "../assets/store/windows-store.svg";
 import { ReactComponent as SearchIcon } from "../assets/icons/search-icon.svg";
 import CustomSelect from "../components/customSelect/customSelect";
+import getData from "../data/data";
 
 function getFooterLinksSpacing(index: number) {
   if (index !== 0) {
@@ -23,6 +24,21 @@ function getDropdownItems(count: number) {
     results.push({ label: name, value: name });
   }
   return results;
+}
+
+function getDisplayed() {
+  const data = getData();
+
+  return data.map((val) => (
+    <div className="posterDiv">
+      <img
+        className="poster"
+        src={val.images["Poster Art"].url}
+        alt={val.title}
+      />
+      <div className="posterTitle">{val.title}</div>
+    </div>
+  ));
 }
 
 export default function Mockup() {
@@ -72,7 +88,7 @@ export default function Mockup() {
       </header>
       <div className="max bodyMargin">
         <div className="bodyTop">
-          <div className="flex">
+          <div className="searchBar">
             <input
               type="text"
               placeholder="Search..."
@@ -85,13 +101,15 @@ export default function Mockup() {
               <SearchIcon className="searchIcon" />
             </button>
           </div>
-          <div>
+          <div className="filler" />
+          <div className="sortBar">
             <CustomSelect options={getDropdownItems(3)} />
           </div>
         </div>
       </div>
+      <div className="posterContainer">{getDisplayed()}</div>
       <footer className="footer">
-        <div className="max colorWhite footerMargin">
+        <div className="max colorWhite footerPadding">
           <div>
             <ul className="footerList">{footerLinks}</ul>
           </div>
