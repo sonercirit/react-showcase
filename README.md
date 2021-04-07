@@ -50,3 +50,21 @@ Formats the whole project with prettier.
 ### `yarn lint`
 
 Lints the whole project with eslint.
+
+## Extra Packages
+
+### react-router
+
+Page router.
+
+### eslint with airbnb config
+
+Linter with best practices baked in.
+
+### prettier
+
+An Opinionated formatter with sane defaults.
+
+### husky and lint-staged
+
+Runs eslint and prettier via git hooks.
