@@ -17,7 +17,7 @@ function getFooterLinksSpacing(index: number) {
   return "";
 }
 
-function getDropdownItems(count: number) {
+export function getDropdownItems(count: number) {
   const results = [];
   for (let i = 0; i < count; i += 1) {
     const name = `Dropdown Item ${i + 1}`;

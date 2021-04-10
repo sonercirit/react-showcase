@@ -53,7 +53,7 @@ export default function CustomSelect({ options }: any) {
       components={{ DropdownIndicator, IndicatorSeparator: () => null }}
       styles={style}
       options={options}
-      // menuIsOpen
+      menuIsOpen
       isSearchable={false}
       theme={customTheme}
       placeholder="Sort by"
