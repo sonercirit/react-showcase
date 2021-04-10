@@ -21,7 +21,7 @@ export function getDropdownItems(count: number) {
   const results = [];
   for (let i = 0; i < count; i += 1) {
     const name = `Dropdown Item ${i + 1}`;
-    results.push({ label: name, value: name });
+    results.push({ label: name, value: name, key: name });
   }
   return results;
 }
@@ -30,7 +30,7 @@ function getDisplayed() {
   const data = getData();
 
   return data.map((val) => (
-    <div className="posterDiv">
+    <div className="posterDiv" key={val.title}>
       <img
         className="poster"
         src={val.images["Poster Art"].url}
