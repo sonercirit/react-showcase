@@ -7,7 +7,7 @@ import { ReactComponent as AppStore } from "../assets/store/app-store.svg";
 import { ReactComponent as PlayStore } from "../assets/store/play-store.svg";
 import { ReactComponent as WindowsStore } from "../assets/store/windows-store.svg";
 import { ReactComponent as SearchIcon } from "../assets/icons/search-icon.svg";
-import CustomSelect from "../components/customSelect/customSelect";
+import CustomSelect from "../components/customSelect";
 import getData from "../data/data";
 
 function getFooterLinksSpacing(index: number) {
