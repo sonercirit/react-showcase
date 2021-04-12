@@ -6,7 +6,7 @@ import Filter from "../Filter";
 import placeholder from "../../assets/placeholder.png";
 import { mainSlice } from "../../data/redux";
 
-function handleType(type: string, dispatch: any, feed: any) {
+export function handleType(type: string, dispatch: any, feed: any) {
   dispatch(mainSlice.actions.changeType(type));
 
   switch (type) {

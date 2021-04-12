@@ -16,6 +16,10 @@
   margin-bottom: 2%;
 }
 
+.titleClickable {
+  cursor: pointer;
+}
+
 .topBar .rightSection {
   display: flex;
   justify-content: right;

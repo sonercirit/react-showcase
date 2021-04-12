@@ -1,17 +1,27 @@
 import React from "react";
 import "./index.css";
 import "../common.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { handleType } from "../body";
 
 export default function Header() {
   const title = useSelector((val: any) => val.main.title);
+  const dispatch = useDispatch();
 
   return (
     <header>
       <div className="topBar shadow blueBackground">
         <div className="blueBar max">
-          <div className="section">
-            <h1 className="colorWhite titleMargin">DEMO Streaming</h1>
+          <div
+            tabIndex={0}
+            onKeyPress={() => {}}
+            className="section"
+            role="button"
+            onClick={() => handleType("home", dispatch, null)}
+          >
+            <h1 className="colorWhite titleMargin titleClickable">
+              DEMO Streaming
+            </h1>
           </div>
           <div className="rightSection section">
             <a className="link loginButton" href="https://www.example.com">
