@@ -9,13 +9,7 @@ import { ReactComponent as WindowsStore } from "../assets/store/windows-store.sv
 import { ReactComponent as SearchIcon } from "../assets/icons/search-icon.svg";
 import CustomSelect from "../components/customSelect";
 import getData from "../data/data";
-
-function getFooterLinksSpacing(index: number) {
-  if (index !== 0) {
-    return <span>&nbsp;| </span>;
-  }
-  return "";
-}
+import { footerLinks } from "../components/footer";
 
 export function getDropdownItems(count: number) {
   const results = [];
@@ -42,23 +36,8 @@ function getDisplayed() {
 }
 
 export default function Mockup() {
-  const footerLinks = [
-    "Home",
-    "Terms and Conditions",
-    "Privacy Policy",
-    "Condition Statement",
-    "Help",
-    "Manage Account",
-  ].map((value, index) => (
-    <li className="listElement" key={value}>
-      {getFooterLinksSpacing(index)}
-      <a className="link" href="https://www.example.com">
-        {value}
-      </a>
-    </li>
-  ));
   return (
-    <div>
+    <div className="main">
       <header>
         <div className="topBar shadow blueBackground">
           <div className="blueBar max">
@@ -86,28 +65,30 @@ export default function Mockup() {
           </div>
         </div>
       </header>
-      <div className="max bodyMargin">
-        <div className="bodyTop">
-          <div className="searchBar">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="searchTerm lightShadow"
-            />
-            <button
-              className="blueBackground searchButton lightShadow"
-              type="submit"
-            >
-              <SearchIcon className="searchIcon" />
-            </button>
-          </div>
-          <div className="filler" />
-          <div className="sortBar">
-            <CustomSelect options={getDropdownItems(3)} />
+      <div className="content">
+        <div className="max">
+          <div className="bodyTop">
+            <div className="searchBar">
+              <input
+                type="text"
+                placeholder="Search..."
+                className="searchTerm lightShadow"
+              />
+              <button
+                className="blueBackground searchButton lightShadow"
+                type="submit"
+              >
+                <SearchIcon className="searchIcon" />
+              </button>
+            </div>
+            <div className="filler" />
+            <div className="sortBar">
+              <CustomSelect options={getDropdownItems(3)} />
+            </div>
           </div>
         </div>
+        <div className="posterContainer">{getDisplayed()}</div>
       </div>
-      <div className="posterContainer">{getDisplayed()}</div>
       <footer className="footer">
         <div className="max colorWhite footerPadding">
           <div>
