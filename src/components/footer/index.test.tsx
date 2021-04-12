@@ -11,7 +11,7 @@ describe("Footer", () => {
 
   it("should have 6 svg logos", () => {
     const render = shallow(<Footer />);
-    const elements = render.find("svg");
+    const elements = render.find(".socialScale");
     expect(elements.length).toEqual(6);
   });
 });
