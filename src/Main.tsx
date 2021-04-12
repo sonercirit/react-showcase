@@ -8,7 +8,7 @@ export default function Main() {
   return (
     <div className="main">
       <Header />
-      <Body type="home" />
+      <Body />
       <Footer />
     </div>
   );

@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "./index.css";
 import "../common.css";
+import { useDispatch, useSelector } from "react-redux";
 import Filter from "../Filter";
 import placeholder from "../../assets/placeholder.png";
+import { mainSlice } from "../../data/redux";
 
-function getData(type: string) {
+function handleType(type: string, dispatch: any, feed: any) {
+  dispatch(mainSlice.actions.changeType(type));
+
   switch (type) {
     case "home":
+      dispatch(mainSlice.actions.changeTitle("Popular Titles"));
+      dispatch(mainSlice.actions.changeFilter(false));
       return [
         {
           title: "Popular Series",
@@ -21,21 +27,30 @@ function getData(type: string) {
           key: "movies",
         },
       ];
+    case "series":
+      dispatch(mainSlice.actions.changeTitle("Popular Series"));
+      dispatch(mainSlice.actions.changeFilter(true));
+      return feed.series
+        .map((val: any) => ({
+          title: val.title,
+          img: val.images["Poster Art"].url,
+        }))
+        .splice(0, 21);
     default:
       return [];
   }
 }
 
-function getDisplayed(type: string, setState: any) {
-  const data = getData(type);
+function getDisplayed(type: string, dispatch: any, feed: any) {
+  const data = handleType(type, dispatch, feed);
 
-  return data.map((val) => (
+  return data.map((val: any) => (
     <div
       className="posterDiv"
       key={val.title}
       role="button"
       onClick={() => {
-        setState({ type: val.key });
+        if (val.overText) dispatch(mainSlice.actions.changeType(val.key));
       }}
       tabIndex={0}
       onKeyPress={() => {}}
@@ -49,14 +64,16 @@ function getDisplayed(type: string, setState: any) {
   ));
 }
 
-export default function Body(props: any) {
-  const [state, setState] = useState(props);
+export default function Body() {
+  const feed = useSelector((val: any) => val.feed);
+  const state = useSelector((val: any) => val.main);
+  const dispatch = useDispatch();
 
   return (
     <div className="content max">
       {state.showFilter ? <Filter /> : null}
       <div className="posterContainer">
-        {getDisplayed(state.type, setState)}
+        {getDisplayed(state.type, dispatch, feed)}
       </div>
     </div>
   );

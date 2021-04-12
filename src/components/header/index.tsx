@@ -1,8 +1,11 @@
 import React from "react";
 import "./index.css";
 import "../common.css";
+import { useSelector } from "react-redux";
 
-export default function Header({ title }: any) {
+export default function Header() {
+  const title = useSelector((val: any) => val.main.title);
+
   return (
     <header>
       <div className="topBar shadow blueBackground">
@@ -27,7 +30,7 @@ export default function Header({ title }: any) {
       </div>
       <div className="greyBackground shadow">
         <div className="max">
-          <h2 className="popular colorWhite">{title || "Popular Titles"}</h2>
+          <h2 className="popular colorWhite">{title}</h2>
         </div>
       </div>
     </header>
