@@ -1,0 +1,45 @@
+.listElement {
+  float: left;
+}
+
+.footer {
+  background-color: #1e1e1e;
+  flex-shrink: 0;
+}
+
+.footerPadding {
+  padding-top: 2%;
+  padding-bottom: 3%;
+}
+
+.footerList {
+  list-style: none;
+  padding-left: 0;
+}
+
+.copyrightPadding {
+  padding-top: 1.5%;
+}
+
+.footerBottom {
+  margin-top: 5%;
+  display: flex;
+}
+
+.footerBottomElement {
+  flex-grow: 1;
+}
+
+.footerBottomRight {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.socialScale {
+  height: 2em;
+  width: auto;
+}
+
+.socialMargin {
+  margin-left: 2%;
+}
