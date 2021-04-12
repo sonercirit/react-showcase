@@ -6,6 +6,15 @@ import Filter from "../Filter";
 import placeholder from "../../assets/placeholder.png";
 import { mainSlice } from "../../data/redux";
 
+function filterFeedForDisplay(feed: any) {
+  return feed
+    .map((val: any) => ({
+      title: val.title,
+      img: val.images["Poster Art"].url,
+    }))
+    .splice(0, 21);
+}
+
 export function handleType(type: string, dispatch: any, feed: any) {
   dispatch(mainSlice.actions.changeType(type));
 
@@ -30,12 +39,11 @@ export function handleType(type: string, dispatch: any, feed: any) {
     case "series":
       dispatch(mainSlice.actions.changeTitle("Popular Series"));
       dispatch(mainSlice.actions.changeFilter(true));
-      return feed.series
-        .map((val: any) => ({
-          title: val.title,
-          img: val.images["Poster Art"].url,
-        }))
-        .splice(0, 21);
+      return filterFeedForDisplay(feed.series);
+    case "movies":
+      dispatch(mainSlice.actions.changeTitle("Popular Movies"));
+      dispatch(mainSlice.actions.changeFilter(true));
+      return filterFeedForDisplay(feed.movies);
     default:
       return [];
   }

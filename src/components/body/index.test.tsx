@@ -27,4 +27,15 @@ describe("Body", () => {
     const posters = render.find(".posterDiv");
     expect(posters.length).toEqual(21);
   });
+
+  it("should get movies", () => {
+    const render = mount(
+      <Provider store={redux}>
+        <Body />
+      </Provider>
+    );
+    render.find(".posterDiv").last().simulate("click");
+    const posters = render.find(".posterDiv");
+    expect(posters.length).toEqual(21);
+  });
 });
