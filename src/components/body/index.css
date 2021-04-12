@@ -18,6 +18,7 @@
   flex: 0 1 12%;
   padding: 1%;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .poster {
