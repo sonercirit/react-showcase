@@ -1,9 +1,32 @@
+import { mount } from "enzyme";
 import React from "react";
-import { render, screen } from "@testing-library/react";
-import App from "./App";
+import { MemoryRouter } from "react-router-dom";
+import { Routes } from "./App";
+import Main from "./Main";
+import Mockup from "./mockup";
 
-test("renders learn react link", () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("App", () => {
+  it("should get mockup page", () => {
+    const app = mount(
+      <MemoryRouter initialEntries={["/mockup"]}>
+        <Routes />
+      </MemoryRouter>
+    );
+    const main = app.find(Main);
+    const mockup = app.find(Mockup);
+    expect(main.length).toEqual(0);
+    expect(mockup.length).toEqual(1);
+  });
+
+  it("should get main page", () => {
+    const app = mount(
+      <MemoryRouter initialEntries={["/"]}>
+        <Routes />
+      </MemoryRouter>
+    );
+    const main = app.find(Main);
+    const mockup = app.find(Mockup);
+    expect(main.length).toEqual(1);
+    expect(mockup.length).toEqual(0);
+  });
 });
