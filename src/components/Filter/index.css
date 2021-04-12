@@ -1,0 +1,40 @@
+.bodyTop {
+  display: flex;
+}
+
+.searchBar {
+  display: flex;
+  flex-grow: 0.4;
+}
+
+.searchTerm {
+  padding-left: 20px;
+  font-size: 13pt;
+  border: 0;
+  width: 100%;
+}
+
+.lightShadow {
+  box-shadow: 0 0 5px 1px #ccc;
+}
+
+.searchButton {
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  height: 2em;
+  width: 4em;
+}
+
+.searchIcon {
+  margin: auto;
+  scale: 0.8;
+}
+
+.filler {
+  flex-grow: 1;
+}
+
+.sortBar {
+  flex-grow: 0.7;
+}
