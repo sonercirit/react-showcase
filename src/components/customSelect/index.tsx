@@ -59,7 +59,7 @@ export default function CustomSelect({ options }: any) {
 
   return (
     <Select
-      onChange={(value) => optionOnChange(dispatch, type, value!.value)}
+      onChange={(value) => optionOnChange(dispatch, type, value?.value || "")}
       components={{ DropdownIndicator, IndicatorSeparator: () => null }}
       styles={style}
       options={options}
