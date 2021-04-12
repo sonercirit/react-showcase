@@ -13,3 +13,41 @@
   padding-top: 2%;
   min-width: 82vw;
 }
+
+.posterDiv {
+  flex: 0 1 12%;
+  padding: 1%;
+  overflow: hidden;
+}
+
+.poster {
+  width: 100%;
+  background-color: #1e1e1e;
+  min-height: 28vh;
+  object-fit: none;
+}
+
+.posterTitle {
+  padding-top: 5%;
+  font-size: 13pt;
+  color: #1e1e1e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.imgWrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  font-size: 90%;
+  word-break: break-word;
+  color: white;
+  align-items: center;
+}
+
+.imgCaption {
+  position: absolute;
+}
