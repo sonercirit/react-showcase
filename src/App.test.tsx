@@ -1,16 +1,20 @@
 import { mount } from "enzyme";
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 import { Routes } from "./App";
 import Main from "./Main";
 import Mockup from "./mockup";
+import redux from "./data/redux";
 
 describe("App", () => {
   it("should get mockup page", () => {
     const app = mount(
-      <MemoryRouter initialEntries={["/mockup"]}>
-        <Routes />
-      </MemoryRouter>
+      <Provider store={redux}>
+        <MemoryRouter initialEntries={["/mockup"]}>
+          <Routes />
+        </MemoryRouter>{" "}
+      </Provider>
     );
     const main = app.find(Main);
     const mockup = app.find(Mockup);
@@ -20,9 +24,11 @@ describe("App", () => {
 
   it("should get main page", () => {
     const app = mount(
-      <MemoryRouter initialEntries={["/"]}>
-        <Routes />
-      </MemoryRouter>
+      <Provider store={redux}>
+        <MemoryRouter initialEntries={["/"]}>
+          <Routes />
+        </MemoryRouter>
+      </Provider>
     );
     const main = app.find(Main);
     const mockup = app.find(Mockup);
