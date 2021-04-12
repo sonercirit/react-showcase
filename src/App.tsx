@@ -11,6 +11,9 @@ export const Routes = () => (
     <Route path="/mockup">
       <Mockup />
     </Route>
+    <Route>
+      <Main notFound />
+    </Route>
   </Switch>
 );
 
