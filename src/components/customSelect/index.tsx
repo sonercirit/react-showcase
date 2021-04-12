@@ -1,6 +1,8 @@
 import React from "react";
 import Select, { components } from "react-select";
+import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as DropdownIcon } from "../../assets/icons/dropdown-icon.svg";
+import { feedSlice } from "../../data/redux";
 
 const DropdownIndicator = (props: any) => (
   // same props are passed with no changes, assuming safe usage
@@ -10,7 +12,14 @@ const DropdownIndicator = (props: any) => (
   </components.DropdownIndicator>
 );
 
+function optionOnChange(dispatch: any, type: string, key: string) {
+  dispatch(feedSlice.actions.sort({ type, key }));
+}
+
 export default function CustomSelect({ options }: any) {
+  const dispatch = useDispatch();
+  const type = useSelector((val: any) => val.main.type);
+
   const boxShadow = "0 0 5px 1px #ccc";
   const style = {
     control: (base: any) => ({
@@ -50,6 +59,7 @@ export default function CustomSelect({ options }: any) {
 
   return (
     <Select
+      onChange={(value) => optionOnChange(dispatch, type, value!.value)}
       components={{ DropdownIndicator, IndicatorSeparator: () => null }}
       styles={style}
       options={options}

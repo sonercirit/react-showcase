@@ -8,27 +8,27 @@ import { feedSlice } from "../../data/redux";
 const dropdownOptions = [
   {
     label: "Sort by year in descending order",
-    value: "year-desc",
-    key: "year-desc",
+    value: "yearDesc",
+    key: "yearDesc",
   },
   {
     label: "Sort by year in ascending order",
-    value: "year-asc",
-    key: "year-asc",
+    value: "yearAsc",
+    key: "yearAsc",
   },
   {
     label: "Sort by title in descending order",
-    value: "title-desc",
-    key: "title-desc",
+    value: "titleDesc",
+    key: "titleDesc",
   },
   {
     label: "Sort by title in ascending order",
-    value: "title-asc",
-    key: "title-asc",
+    value: "titleAsc",
+    key: "titleAsc",
   },
 ];
 
-export function inputOnChange(event: any, dispatch: any, type: any) {
+function inputOnChange(event: any, dispatch: any, type: any) {
   const val = event.target.value;
 
   if (val.length >= 3 || val.length === 0)

@@ -24,6 +24,21 @@ function filterFeed() {
 
 const filteredFeed = filterFeed();
 
+function sort(key: string, array: any) {
+  switch (key) {
+    case "yearAsc":
+      return array.sort((a: any, b: any) => a.releaseYear - b.releaseYear);
+    case "yearDesc":
+      return array.sort((a: any, b: any) => b.releaseYear - a.releaseYear);
+    case "titleAsc":
+      return array.sort((a: any, b: any) => a.title > b.title);
+    case "titleDesc":
+      return array.sort((a: any, b: any) => b.title > a.title);
+    default:
+      throw Error("wrong key");
+  }
+}
+
 export const feedSlice = createSlice({
   name: "feed",
   initialState: {
@@ -46,6 +61,24 @@ export const feedSlice = createSlice({
             val.title
               .toLowerCase()
               .includes(action.payload.string.toLowerCase())
+          );
+          break;
+        default:
+          throw Error("invalid type");
+      }
+    },
+    sort: (state, action) => {
+      switch (action.payload.type) {
+        case "movies":
+          state.displayedMovies = sort(
+            action.payload.key,
+            state.displayedMovies.slice()
+          );
+          break;
+        case "series":
+          state.displayedSeries = sort(
+            action.payload.key,
+            state.displayedSeries.slice()
           );
           break;
         default:
