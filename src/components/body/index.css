@@ -1,0 +1,15 @@
+.content {
+  margin-top: 3%;
+  flex: 1 0 auto;
+  min-width: 80%;
+}
+
+.posterContainer {
+  display: flex;
+  max-width: 82%;
+  margin: auto;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-top: 2%;
+  min-width: 82vw;
+}
