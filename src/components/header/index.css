@@ -1,0 +1,57 @@
+.shadow {
+  box-shadow: 0 1em 1em -1em #414141;
+}
+
+.blueBackground {
+  background-color: #017efe;
+}
+
+.blueBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.max {
+  max-width: 80%;
+  margin: auto;
+}
+
+.section {
+  flex-grow: 1;
+}
+
+.colorWhite {
+  color: white;
+}
+
+.titleMargin {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.topBar .rightSection {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.trialButton {
+  padding: 0.5em;
+  margin-left: 1em;
+}
+
+.greyBackground {
+  background-color: #414141;
+}
+
+.popular {
+  padding-top: 1%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 1%;
+}
