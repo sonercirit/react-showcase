@@ -1,9 +1,10 @@
 import React from "react";
 import { mount } from "enzyme";
 import { Provider } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
 import Body from "./index";
 import Filter from "../Filter";
-import redux from "../../data/redux";
+import redux, { feedSlice, mainSlice } from "../../data/redux";
 
 describe("Body", () => {
   const node = (
@@ -26,7 +27,14 @@ describe("Body", () => {
   });
 
   it("should get movies", () => {
-    const render = mount(node);
+    const store = configureStore({
+      reducer: { feed: feedSlice.reducer, main: mainSlice.reducer },
+    });
+    const render = mount(
+      <Provider store={store}>
+        <Body />
+      </Provider>
+    );
     render.find(".posterDiv").last().simulate("click");
     const posters = render.find(".posterDiv");
     expect(posters.length).toEqual(21);
