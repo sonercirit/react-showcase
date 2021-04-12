@@ -11,17 +11,8 @@
   justify-content: space-between;
 }
 
-.max {
-  max-width: 80%;
-  margin: auto;
-}
-
 .section {
   flex-grow: 1;
-}
-
-.colorWhite {
-  color: white;
 }
 
 .titleMargin {
@@ -33,11 +24,6 @@
   display: flex;
   justify-content: right;
   align-items: center;
-}
-
-.link {
-  text-decoration: none;
-  color: white;
 }
 
 .trialButton {

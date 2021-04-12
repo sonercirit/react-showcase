@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.css";
+import "../common.css";
 
 export default function Header({ title }: any) {
   return (
