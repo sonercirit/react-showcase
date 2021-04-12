@@ -22,10 +22,37 @@ function filterFeed() {
   return { movies, series };
 }
 
-const feedSlice = createSlice({
+const filteredFeed = filterFeed();
+
+export const feedSlice = createSlice({
   name: "feed",
-  initialState: filterFeed(),
-  reducers: {},
+  initialState: {
+    ...filteredFeed,
+    displayedSeries: filteredFeed.series,
+    displayedMovies: filteredFeed.movies,
+  },
+  reducers: {
+    search: (state, action) => {
+      switch (action.payload.type) {
+        case "movies":
+          state.displayedMovies = state.movies.filter((val) =>
+            val.title
+              .toLowerCase()
+              .includes(action.payload.string.toLowerCase())
+          );
+          break;
+        case "series":
+          state.displayedSeries = state.series.filter((val) =>
+            val.title
+              .toLowerCase()
+              .includes(action.payload.string.toLowerCase())
+          );
+          break;
+        default:
+          throw Error("invalid type");
+      }
+    },
+  },
 });
 
 export const mainSlice = createSlice({

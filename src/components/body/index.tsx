@@ -39,11 +39,11 @@ export function handleType(type: string, dispatch: any, feed: any) {
     case "series":
       dispatch(mainSlice.actions.changeTitle("Popular Series"));
       dispatch(mainSlice.actions.changeFilter(true));
-      return filterFeedForDisplay(feed.series);
+      return filterFeedForDisplay(feed.displayedSeries);
     case "movies":
       dispatch(mainSlice.actions.changeTitle("Popular Movies"));
       dispatch(mainSlice.actions.changeFilter(true));
-      return filterFeedForDisplay(feed.movies);
+      return filterFeedForDisplay(feed.displayedMovies);
     default:
       return [];
   }
